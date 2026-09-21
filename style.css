@@ -1,0 +1,308 @@
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text: #2b3029;
+  --text-secondary: #6b7568;
+  --bg: #e8ece4;
+  --link: #2b3029;
+  --link-hover: #4a7c6f;
+  --border: #d4dbd0;
+  --accent: #4a7c6f;
+  --name: #3d6b5e;
+  --max-width: 640px;
+}
+
+
+html {
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Charter', 'Bitstream Charter', 'Georgia', serif;
+  color: var(--text);
+  background: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  line-height: 1.6;
+  border-top: 3px solid var(--accent);
+}
+
+/* ---- Layout ---- */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* ---- Header ---- */
+header {
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+header h1 a {
+  color: var(--name);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+header h1 a:hover {
+  color: var(--accent);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.15s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ---- Sections ---- */
+section {
+  margin-bottom: 3rem;
+}
+
+.intro p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 540px;
+}
+
+.intro a {
+  color: var(--text);
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
+}
+
+.intro a:hover {
+  text-decoration-color: var(--text);
+}
+
+h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* ---- Post List ---- */
+.post-list {
+  list-style: none;
+}
+
+.post-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.4rem 0;
+}
+
+.post-list .date {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-family: 'SF Mono', 'Menlo', monospace;
+  flex-shrink: 0;
+  min-width: 5rem;
+}
+
+.post-list a {
+  color: var(--link);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.post-list a:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.more {
+  margin-top: 0.75rem;
+}
+
+.more a {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.more a:hover {
+  color: var(--accent);
+}
+
+/* ---- Topic Grid ---- */
+.topic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.topic {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  text-decoration: none;
+  background: var(--bg);
+  transition: background 0.15s;
+}
+
+.topic:hover {
+  background: color-mix(in srgb, var(--text) 4%, var(--bg));
+}
+
+.topic strong {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.topic span {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* ---- Footer ---- */
+footer {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+footer p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* ---- Article/Page ---- */
+.page-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+article.page p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+article.page h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+article.page a {
+  color: var(--text);
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
+}
+
+article.page a:hover {
+  text-decoration-color: var(--text);
+}
+
+nav a.active {
+  color: var(--text);
+}
+
+/* ---- Book, Link, Question Lists ---- */
+.book-list, .link-list, .question-list {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.book-list li, .link-list li {
+  padding: 0.35rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.question-list li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-bottom: 1px solid var(--border);
+}
+
+.question-list li:last-child {
+  border-bottom: none;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  html {
+    font-size: 16px;
+  }
+
+  main {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .post-list li {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}
