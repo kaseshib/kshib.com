@@ -19,5 +19,5 @@ async function unlock(password){
 form.addEventListener('submit',async event=>{
  event.preventDefault();submit.disabled=true;submit.textContent='Opening…';status.textContent='';
  try{await unlock(document.querySelector('#password').value.trim());}
- catch(error){status.textContent=error.message==='password'?'That password did not work. Try copying it again.':error.message==='https'?'Open this page using its HTTPS address to unlock it.':'The itinerary could not load. Check your connection and try again.';submit.disabled=false;submit.textContent='Let’s go ↗';}
+ catch(error){status.textContent=error.message==='password'?'That password did not work. Try copying it again.':error.message==='https'?'Open this page using its HTTPS address to unlock it.':'The itinerary could not load. Check your connection and try again.';submit.disabled=false;submit.textContent='Open itinerary ↗';}
 });
